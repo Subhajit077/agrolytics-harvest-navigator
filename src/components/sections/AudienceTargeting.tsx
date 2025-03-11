@@ -38,7 +38,7 @@ const AudienceTargeting = () => {
             <div className="relative">
               <div className="w-full h-full absolute top-0 left-0 bg-agro-blue-light/30 rounded-xl blur-2xl opacity-50"></div>
               <img 
-                src="https://images.unsplash.com/photo-1556155092-490a1ba16284?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" 
+                src="/placeholder.svg" 
                 alt="Financial institution using Agrolytix" 
                 className="relative rounded-xl shadow-lg max-w-sm lg:max-w-md z-10"
               />
@@ -99,7 +99,7 @@ const AudienceTargeting = () => {
             <div className="relative">
               <div className="w-full h-full absolute top-0 left-0 bg-agro-purple-light/30 rounded-xl blur-2xl opacity-50"></div>
               <img 
-                src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" 
+                src="/placeholder.svg" 
                 alt="Farmer using Agrolytix mobile app" 
                 className="relative rounded-xl shadow-lg max-w-sm lg:max-w-md z-10"
               />

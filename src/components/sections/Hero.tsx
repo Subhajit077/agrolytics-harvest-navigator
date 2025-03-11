@@ -40,7 +40,7 @@ const Hero = () => {
             <div className="relative">
               <div className="w-full h-full absolute top-0 left-0 bg-gradient-to-br from-agro-blue-light/30 to-agro-purple-light/30 rounded-2xl blur-2xl opacity-70"></div>
               <img 
-                src="https://images.unsplash.com/photo-1590682681756-ea39a5d37dcc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3000&q=80" 
+                src="/placeholder.svg" 
                 alt="Farmer using Agrolytix technology" 
                 className="relative z-10 rounded-2xl shadow-xl animate-float object-cover"
                 style={{ width: '500px', height: '375px' }}
