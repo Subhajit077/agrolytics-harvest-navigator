@@ -66,19 +66,47 @@ const Footer = () => {
         <div className="mt-10 mb-8">
           <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-4 text-center">Our Leadership Team</h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-            <div className="p-3">
+            <div className="p-3 transform transition-all duration-300 hover:scale-105">
+              <div className="relative w-32 h-32 mx-auto mb-4 overflow-hidden rounded-full shadow-lg">
+                <img 
+                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop" 
+                  alt="Krishna Saproo"
+                  className="object-cover w-full h-full transition-transform duration-500 hover:scale-110"
+                />
+              </div>
               <p className="font-medium text-gray-800">Krishna Saproo</p>
               <p className="text-sm text-gray-500">CEO</p>
             </div>
-            <div className="p-3">
+            <div className="p-3 transform transition-all duration-300 hover:scale-105">
+              <div className="relative w-32 h-32 mx-auto mb-4 overflow-hidden rounded-full shadow-lg">
+                <img 
+                  src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop" 
+                  alt="Ratul Tarafdar"
+                  className="object-cover w-full h-full transition-transform duration-500 hover:scale-110"
+                />
+              </div>
               <p className="font-medium text-gray-800">Ratul Tarafdar</p>
               <p className="text-sm text-gray-500">CTO</p>
             </div>
-            <div className="p-3">
+            <div className="p-3 transform transition-all duration-300 hover:scale-105">
+              <div className="relative w-32 h-32 mx-auto mb-4 overflow-hidden rounded-full shadow-lg">
+                <img 
+                  src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop" 
+                  alt="Subhajit Biswas"
+                  className="object-cover w-full h-full transition-transform duration-500 hover:scale-110"
+                />
+              </div>
               <p className="font-medium text-gray-800">Subhajit Biswas</p>
               <p className="text-sm text-gray-500">COO</p>
             </div>
-            <div className="p-3">
+            <div className="p-3 transform transition-all duration-300 hover:scale-105">
+              <div className="relative w-32 h-32 mx-auto mb-4 overflow-hidden rounded-full shadow-lg">
+                <img 
+                  src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=400&h=400&fit=crop" 
+                  alt="Bikram J. Roy"
+                  className="object-cover w-full h-full transition-transform duration-500 hover:scale-110"
+                />
+              </div>
               <p className="font-medium text-gray-800">Bikram J. Roy</p>
               <p className="text-sm text-gray-500">CFO</p>
             </div>
