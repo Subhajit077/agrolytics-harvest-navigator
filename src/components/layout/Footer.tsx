@@ -62,6 +62,29 @@ const Footer = () => {
           </div>
         </div>
         
+        {/* Team Section */}
+        <div className="mt-10 mb-8">
+          <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-4 text-center">Our Leadership Team</h3>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+            <div className="p-3">
+              <p className="font-medium text-gray-800">Krishna Saproo</p>
+              <p className="text-sm text-gray-500">CEO</p>
+            </div>
+            <div className="p-3">
+              <p className="font-medium text-gray-800">Ratul Tarafdar</p>
+              <p className="text-sm text-gray-500">CTO</p>
+            </div>
+            <div className="p-3">
+              <p className="font-medium text-gray-800">Subhajit Biswas</p>
+              <p className="text-sm text-gray-500">COO</p>
+            </div>
+            <div className="p-3">
+              <p className="font-medium text-gray-800">Bikram J. Roy</p>
+              <p className="text-sm text-gray-500">CFO</p>
+            </div>
+          </div>
+        </div>
+        
         <hr className="my-8 border-gray-200" />
         
         <div className="sm:flex sm:items-center sm:justify-between">
