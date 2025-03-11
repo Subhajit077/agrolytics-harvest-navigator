@@ -6,6 +6,7 @@ import Features from "@/components/sections/Features";
 import AudienceTargeting from "@/components/sections/AudienceTargeting";
 import DemoRequest from "@/components/sections/DemoRequest";
 import FAQ from "@/components/sections/FAQ";
+import InteractiveTools from "@/components/sections/InteractiveTools";
 
 const Index = () => {
   return (
@@ -14,6 +15,7 @@ const Index = () => {
       <main className="flex-grow">
         <Hero />
         <Features />
+        <InteractiveTools />
         <AudienceTargeting />
         <DemoRequest />
         <FAQ />
