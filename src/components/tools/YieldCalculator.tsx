@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Corn, ArrowRight } from "lucide-react";
+import { Leaf, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -113,7 +113,7 @@ const YieldCalculator = () => {
 
       <div className="bg-agro-green-light p-6 rounded-lg">
         <div className="text-center mb-6">
-          <Corn size={48} className="mx-auto text-agro-green mb-4" />
+          <Leaf size={48} className="mx-auto text-agro-green mb-4" />
           <h4 className="text-xl font-bold text-gray-800">Prediction Results</h4>
           <p className="text-gray-600">AI-powered yield and credit assessment</p>
         </div>
