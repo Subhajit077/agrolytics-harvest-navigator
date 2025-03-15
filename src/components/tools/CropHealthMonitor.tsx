@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import { Leaf, AlertTriangle, CheckCircle } from "lucide-react";
+import { Leaf, AlertTriangle, CheckCircle, ImageOff } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { 
   Card, 
@@ -32,8 +32,34 @@ const diseaseSymptoms = {
   potato: ["dark water-soaked lesions", "concentric rings on leaves", "black masses on tubers"]
 };
 
+// Common visual characteristics of crop images for validation
+const cropVisualCharacteristics = {
+  // Green hues common in crops (in HSL - approximated values)
+  greenHues: {
+    min: 75,  // Hue range for typical crop greens
+    max: 150
+  },
+  // Patterns common in crop images
+  patterns: [
+    "uniform rows", 
+    "leaf textures", 
+    "field patterns"
+  ],
+  // Keywords that suggest crop images
+  keywords: [
+    "crop", "plant", "field", "farm", "leaf", "rice", "wheat", "corn", "potato", 
+    "agriculture", "harvest", "soil", "grow", "seedling"
+  ],
+  // Non-crop indicators (things that suggest it's not a crop)
+  nonCropIndicators: [
+    "person", "car", "building", "indoor", "face", "city", "street", "computer", 
+    "phone", "furniture", "animal", "pet", "food", "drink"
+  ]
+};
+
 const CropHealthMonitor = () => {
   const [isAnalyzing, setIsAnalyzing] = useState(false);
+  const [isValidating, setIsValidating] = useState(false);
   const [result, setResult] = useState<'healthy' | 'disease' | null>(null);
   const [cropType, setCropType] = useState("rice");
   const [imageFile, setImageFile] = useState<File | null>(null);
@@ -42,6 +68,8 @@ const CropHealthMonitor = () => {
   const [confidence, setConfidence] = useState<number>(0);
   const [affectedArea, setAffectedArea] = useState<number>(0);
   const [diseaseSymptom, setDiseaseSymptom] = useState<string>("");
+  const [isValidCropImage, setIsValidCropImage] = useState<boolean | null>(null);
+  const [invalidReason, setInvalidReason] = useState<string>("");
 
   // Reset results when crop type changes
   useEffect(() => {
@@ -49,13 +77,131 @@ const CropHealthMonitor = () => {
       setResult(null);
       setImagePreview(null);
       setImageFile(null);
+      setIsValidCropImage(null);
+      setInvalidReason("");
     }
   }, [cropType]);
 
-  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const validateCropImage = (file: File): Promise<{ isValid: boolean, reason?: string }> => {
+    return new Promise((resolve) => {
+      setIsValidating(true);
+      
+      // First check filename for non-crop indicators
+      const fileName = file.name.toLowerCase();
+      const hasNonCropKeyword = cropVisualCharacteristics.nonCropIndicators.some(
+        keyword => fileName.includes(keyword)
+      );
+      
+      if (hasNonCropKeyword) {
+        setIsValidating(false);
+        resolve({ 
+          isValid: false, 
+          reason: "Filename suggests this might not be a crop image" 
+        });
+        return;
+      }
+      
+      // Check if filename has crop-related keywords
+      const hasCropKeyword = cropVisualCharacteristics.keywords.some(
+        keyword => fileName.includes(keyword)
+      );
+      
+      // Create image for analysis
+      const img = new Image();
+      img.onload = () => {
+        // Create canvas to analyze pixel data
+        const canvas = document.createElement("canvas");
+        const ctx = canvas.getContext("2d");
+        canvas.width = img.width;
+        canvas.height = img.height;
+        
+        if (ctx) {
+          ctx.drawImage(img, 0, 0);
+          const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+          const data = imageData.data;
+          
+          // Simple image analysis: Check for predominance of green pixels (common in crops)
+          let greenPixels = 0;
+          let totalPixels = data.length / 4;
+          
+          for (let i = 0; i < data.length; i += 4) {
+            const r = data[i];
+            const g = data[i + 1];
+            const b = data[i + 2];
+            
+            // Convert RGB to HSL and check if in green range
+            const [h, s, l] = rgbToHsl(r, g, b);
+            
+            if (h >= cropVisualCharacteristics.greenHues.min && 
+                h <= cropVisualCharacteristics.greenHues.max &&
+                s > 0.15) { // Only count reasonably saturated greens
+              greenPixels++;
+            }
+          }
+          
+          const greenRatio = greenPixels / totalPixels;
+          
+          // Determine if it's likely a crop image based on green content and filename
+          const isLikelyCrop = (greenRatio > 0.25) || hasCropKeyword;
+          
+          setIsValidating(false);
+          
+          if (!isLikelyCrop) {
+            resolve({ 
+              isValid: false, 
+              reason: "Image doesn't appear to contain crops or plants" 
+            });
+          } else {
+            resolve({ isValid: true });
+          }
+        } else {
+          // Fallback if canvas context is not available
+          setIsValidating(false);
+          resolve({ isValid: hasCropKeyword });
+        }
+      };
+      
+      img.onerror = () => {
+        setIsValidating(false);
+        resolve({ 
+          isValid: false, 
+          reason: "Failed to load image for analysis" 
+        });
+      };
+      
+      img.src = URL.createObjectURL(file);
+    });
+  };
+
+  // Convert RGB to HSL helper function
+  const rgbToHsl = (r: number, g: number, b: number): [number, number, number] => {
+    r /= 255;
+    g /= 255;
+    b /= 255;
+  
+    const max = Math.max(r, g, b);
+    const min = Math.min(r, g, b);
+    let h = 0, s = 0, l = (max + min) / 2;
+  
+    if (max !== min) {
+      const d = max - min;
+      s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+  
+      switch (max) {
+        case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+        case g: h = (b - r) / d + 2; break;
+        case b: h = (r - g) / d + 4; break;
+      }
+  
+      h /= 6;
+    }
+  
+    return [h * 360, s, l]; // Convert h to degrees (0-360)
+  };
+
+  const handleImageChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
       const file = e.target.files[0];
-      setImageFile(file);
       
       // Create image preview
       const reader = new FileReader();
@@ -63,6 +209,21 @@ const CropHealthMonitor = () => {
         setImagePreview(event.target?.result as string);
       };
       reader.readAsDataURL(file);
+      
+      // Validate if this is a crop image
+      const validationResult = await validateCropImage(file);
+      setIsValidCropImage(validationResult.isValid);
+      
+      if (!validationResult.isValid) {
+        setInvalidReason(validationResult.reason || "This doesn't appear to be a crop image");
+        toast({
+          title: "Non-crop image detected",
+          description: validationResult.reason || "Please upload an image of crops for analysis",
+          variant: "destructive"
+        });
+      } else {
+        setImageFile(file);
+      }
       
       // Reset any previous analysis
       setResult(null);
@@ -79,6 +240,15 @@ const CropHealthMonitor = () => {
       return;
     }
     
+    if (isValidCropImage === false) {
+      toast({
+        title: "Invalid image",
+        description: "Please upload a valid crop image for analysis",
+        variant: "destructive"
+      });
+      return;
+    }
+    
     setIsAnalyzing(true);
     
     // More sophisticated analysis based on image name to make demos more realistic
@@ -87,7 +257,7 @@ const CropHealthMonitor = () => {
     
     setTimeout(() => {
       // Check if filename contains disease-related keywords for more accurate detection
-      const diseaseKeywords = ['disease', 'infected', 'blight', 'rust', 'spot', 'mildew', 'rot'];
+      const diseaseKeywords = ['disease', 'infected', 'blight', 'rust', 'spot', 'mildew', 'rot', 'fungus', 'pest'];
       const hasKeyword = diseaseKeywords.some(keyword => fileName.includes(keyword));
       
       // If filename suggests disease or random chance (with bias toward disease for demo purposes)
@@ -167,7 +337,7 @@ const CropHealthMonitor = () => {
                 onChange={handleImageChange}
               />
               <p className="text-xs text-gray-500">
-                For best results, upload a clear image showing leaf detail
+                For best results, upload a clear image showing crop leaf detail
               </p>
             </div>
             
@@ -180,6 +350,14 @@ const CropHealthMonitor = () => {
                     alt="Crop preview" 
                     className="w-full h-full object-contain"
                   />
+                  
+                  {isValidCropImage === false && (
+                    <div className="absolute inset-0 bg-black/70 flex flex-col items-center justify-center text-white p-4">
+                      <ImageOff size={40} className="mb-2 text-red-400" />
+                      <p className="text-center font-medium mb-1">Non-crop image detected</p>
+                      <p className="text-center text-sm">{invalidReason}</p>
+                    </div>
+                  )}
                 </div>
               </div>
             )}
@@ -187,10 +365,10 @@ const CropHealthMonitor = () => {
           <CardFooter>
             <Button 
               onClick={analyzeImage} 
-              disabled={!imageFile || isAnalyzing}
+              disabled={!imageFile || isAnalyzing || isValidating || isValidCropImage === false}
               className="w-full bg-agro-green hover:bg-agro-green-dark"
             >
-              {isAnalyzing ? "Analyzing..." : "Analyze Crop Health"}
+              {isValidating ? "Validating image..." : isAnalyzing ? "Analyzing..." : "Analyze Crop Health"}
             </Button>
           </CardFooter>
         </Card>
