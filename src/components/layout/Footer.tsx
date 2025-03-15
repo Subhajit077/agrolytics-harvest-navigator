@@ -15,107 +15,121 @@ const Footer = () => {
               Revolutionizing agricultural credit scoring with AI-driven insights for farmers and financial institutions.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-500 hover:text-agro-purple">
+              <a href="#" className="text-gray-500 hover:text-agro-purple transition-colors duration-300 transform hover:scale-110">
                 <FacebookIcon size={20} />
               </a>
-              <a href="#" className="text-gray-500 hover:text-agro-purple">
+              <a href="#" className="text-gray-500 hover:text-agro-purple transition-colors duration-300 transform hover:scale-110">
                 <TwitterIcon size={20} />
               </a>
-              <a href="#" className="text-gray-500 hover:text-agro-purple">
+              <a href="#" className="text-gray-500 hover:text-agro-purple transition-colors duration-300 transform hover:scale-110">
                 <InstagramIcon size={20} />
               </a>
-              <a href="#" className="text-gray-500 hover:text-agro-purple">
+              <a href="#" className="text-gray-500 hover:text-agro-purple transition-colors duration-300 transform hover:scale-110">
                 <LinkedinIcon size={20} />
               </a>
             </div>
           </div>
           
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 sm:gap-6">
-            <div>
+            <div className="animate-fade-in" style={{ animationDelay: "100ms" }}>
               <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-4">Solutions</h3>
               <ul className="space-y-3">
-                <li><a href="#" className="text-gray-600 hover:text-agro-green">For Farmers</a></li>
-                <li><a href="#" className="text-gray-600 hover:text-agro-green">For Banks</a></li>
-                <li><a href="#" className="text-gray-600 hover:text-agro-green">For NBFCs</a></li>
-                <li><a href="#" className="text-gray-600 hover:text-agro-green">For Agri-Fintech</a></li>
+                <li><a href="#" className="text-gray-600 hover:text-agro-green transition-colors duration-300">For Farmers</a></li>
+                <li><a href="#" className="text-gray-600 hover:text-agro-green transition-colors duration-300">For Banks</a></li>
+                <li><a href="#" className="text-gray-600 hover:text-agro-green transition-colors duration-300">For NBFCs</a></li>
+                <li><a href="#" className="text-gray-600 hover:text-agro-green transition-colors duration-300">For Agri-Fintech</a></li>
               </ul>
             </div>
             
-            <div>
+            <div className="animate-fade-in" style={{ animationDelay: "200ms" }}>
               <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-4">Company</h3>
               <ul className="space-y-3">
-                <li><a href="#" className="text-gray-600 hover:text-agro-green">About Us</a></li>
-                <li><a href="#" className="text-gray-600 hover:text-agro-green">Careers</a></li>
-                <li><a href="#" className="text-gray-600 hover:text-agro-green">Blog</a></li>
-                <li><a href="#" className="text-gray-600 hover:text-agro-green">Contact</a></li>
+                <li><a href="#" className="text-gray-600 hover:text-agro-green transition-colors duration-300">About Us</a></li>
+                <li><a href="#" className="text-gray-600 hover:text-agro-green transition-colors duration-300">Careers</a></li>
+                <li><a href="#" className="text-gray-600 hover:text-agro-green transition-colors duration-300">Blog</a></li>
+                <li><a href="#" className="text-gray-600 hover:text-agro-green transition-colors duration-300">Contact</a></li>
               </ul>
             </div>
             
-            <div>
+            <div className="animate-fade-in" style={{ animationDelay: "300ms" }}>
               <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-4">Legal</h3>
               <ul className="space-y-3">
-                <li><a href="#" className="text-gray-600 hover:text-agro-green">Privacy Policy</a></li>
-                <li><a href="#" className="text-gray-600 hover:text-agro-green">Terms of Service</a></li>
-                <li><a href="#" className="text-gray-600 hover:text-agro-green">Cookie Policy</a></li>
+                <li><a href="#" className="text-gray-600 hover:text-agro-green transition-colors duration-300">Privacy Policy</a></li>
+                <li><a href="#" className="text-gray-600 hover:text-agro-green transition-colors duration-300">Terms of Service</a></li>
+                <li><a href="#" className="text-gray-600 hover:text-agro-green transition-colors duration-300">Cookie Policy</a></li>
               </ul>
             </div>
           </div>
         </div>
         
-        {/* Team Section */}
-        <div className="mt-10 mb-8">
-          <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-4 text-center">Our Leadership Team</h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-            <div className="p-3 transform transition-all duration-300 hover:scale-105">
-              <div className="relative w-32 h-32 mx-auto mb-4 overflow-hidden rounded-full shadow-lg">
+        {/* Team Section with Enhanced Animations */}
+        <div className="mt-12 mb-10">
+          <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-6 text-center animate-fade-in">
+            Our Leadership Team
+          </h3>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div className="p-4 bg-white rounded-lg shadow-sm transform transition-all duration-300 hover:scale-105 hover:shadow-md animate-fade-in" style={{ animationDelay: "100ms" }}>
+              <div className="relative w-36 h-36 mx-auto mb-4 overflow-hidden rounded-full shadow-lg border-2 border-agro-green">
                 <img 
                   src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop" 
                   alt="Krishna Saproo"
                   className="object-cover w-full h-full transition-transform duration-500 hover:scale-110"
+                  width="400"
+                  height="400"
+                  loading="eager"
                 />
               </div>
-              <p className="font-medium text-gray-800">Krishna Saproo</p>
-              <p className="text-sm text-gray-500">CEO</p>
+              <p className="font-medium text-gray-800 text-lg">Krishna Saproo</p>
+              <p className="text-sm text-gray-500 mt-1">CEO</p>
             </div>
-            <div className="p-3 transform transition-all duration-300 hover:scale-105">
-              <div className="relative w-32 h-32 mx-auto mb-4 overflow-hidden rounded-full shadow-lg">
+            <div className="p-4 bg-white rounded-lg shadow-sm transform transition-all duration-300 hover:scale-105 hover:shadow-md animate-fade-in" style={{ animationDelay: "200ms" }}>
+              <div className="relative w-36 h-36 mx-auto mb-4 overflow-hidden rounded-full shadow-lg border-2 border-agro-green">
                 <img 
                   src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop" 
                   alt="Ratul Tarafdar"
                   className="object-cover w-full h-full transition-transform duration-500 hover:scale-110"
+                  width="400"
+                  height="400"
+                  loading="eager"
                 />
               </div>
-              <p className="font-medium text-gray-800">Ratul Tarafdar</p>
-              <p className="text-sm text-gray-500">CTO</p>
+              <p className="font-medium text-gray-800 text-lg">Ratul Tarafdar</p>
+              <p className="text-sm text-gray-500 mt-1">CTO</p>
             </div>
-            <div className="p-3 transform transition-all duration-300 hover:scale-105">
-              <div className="relative w-32 h-32 mx-auto mb-4 overflow-hidden rounded-full shadow-lg">
+            <div className="p-4 bg-white rounded-lg shadow-sm transform transition-all duration-300 hover:scale-105 hover:shadow-md animate-fade-in" style={{ animationDelay: "300ms" }}>
+              <div className="relative w-36 h-36 mx-auto mb-4 overflow-hidden rounded-full shadow-lg border-2 border-agro-green">
                 <img 
                   src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop" 
                   alt="Subhajit Biswas"
                   className="object-cover w-full h-full transition-transform duration-500 hover:scale-110"
+                  width="400"
+                  height="400"
+                  loading="eager"
                 />
               </div>
-              <p className="font-medium text-gray-800">Subhajit Biswas</p>
-              <p className="text-sm text-gray-500">COO</p>
+              <p className="font-medium text-gray-800 text-lg">Subhajit Biswas</p>
+              <p className="text-sm text-gray-500 mt-1">COO</p>
             </div>
-            <div className="p-3 transform transition-all duration-300 hover:scale-105">
-              <div className="relative w-32 h-32 mx-auto mb-4 overflow-hidden rounded-full shadow-lg">
+            <div className="p-4 bg-white rounded-lg shadow-sm transform transition-all duration-300 hover:scale-105 hover:shadow-md animate-fade-in" style={{ animationDelay: "400ms" }}>
+              <div className="relative w-36 h-36 mx-auto mb-4 overflow-hidden rounded-full shadow-lg border-2 border-agro-green">
                 <img 
                   src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=400&h=400&fit=crop" 
                   alt="Bikram J. Roy"
                   className="object-cover w-full h-full transition-transform duration-500 hover:scale-110"
+                  width="400"
+                  height="400"
+                  loading="eager"
                 />
               </div>
-              <p className="font-medium text-gray-800">Bikram J. Roy</p>
-              <p className="text-sm text-gray-500">CFO</p>
+              <p className="font-medium text-gray-800 text-lg">Bikram J. Roy</p>
+              <p className="text-sm text-gray-500 mt-1">CFO</p>
             </div>
           </div>
         </div>
         
         <hr className="my-8 border-gray-200" />
         
-        <div className="sm:flex sm:items-center sm:justify-between">
+        <div className="sm:flex sm:items-center sm:justify-between animate-fade-in">
           <p className="text-sm text-gray-500">
             &copy; {new Date().getFullYear()} Agrolytix. All rights reserved.
           </p>
