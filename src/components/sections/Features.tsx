@@ -1,5 +1,5 @@
 
-import { BarChart4, Cloud, Database, LineChart, PieChart, Leaf } from "lucide-react";
+import { BarChart4, Cloud, Database, LineChart, PieChart, Leaf, AlertTriangle, MessageSquare } from "lucide-react";
 import FeatureCard from "../ui/FeatureCard";
 
 const Features = () => {
@@ -7,32 +7,42 @@ const Features = () => {
     {
       icon: LineChart,
       title: "AI-powered Yield Prediction",
-      description: "Advanced machine learning algorithms to accurately predict crop yields for more precise credit risk assessments."
+      description: "Advanced machine learning algorithms analyze real-time weather, soil data, and farming practices to predict crop yields with up to 93% accuracy."
     },
     {
       icon: Leaf,
       title: "Soil & Crop Health Monitoring",
-      description: "AI thermal imaging technology that detects crop diseases within 12 hours, enabling timely interventions."
+      description: "AI thermal imaging technology that detects crop diseases within 12 hours, enabling timely interventions to protect yields and credit scores."
     },
     {
       icon: Cloud,
-      title: "Advanced Weather Forecasting",
-      description: "Predictive insights to optimize farming decisions and mitigate financial risks related to weather conditions."
+      title: "Real-time Weather Integration",
+      description: "Live weather data for your specific location helps optimize farming decisions and provides accurate yield forecasts based on current conditions."
     },
     {
       icon: BarChart4,
-      title: "Customized Credit Calculators",
-      description: "Allow both farmers and financial institutions to simulate credit scores based on specific parameters."
+      title: "Farmer-Friendly Interface",
+      description: "Simple, intuitive tools designed specifically for farmers, requiring minimal technical knowledge while providing powerful insights."
+    },
+    {
+      icon: AlertTriangle,
+      title: "Early Risk Detection",
+      description: "Identify potential yield threats from weather, disease, or pests before they impact your crops and financial standing."
+    },
+    {
+      icon: MessageSquare,
+      title: "Personalized Recommendations",
+      description: "Receive tailored farming advice based on your specific crops, location, and practices to maximize yield potential and credit worthiness."
     },
     {
       icon: PieChart,
-      title: "Real-time Data Dashboards",
-      description: "Visual representation of weather, crop health, and yield predictions for informed decision-making."
+      title: "Visual Data Dashboards",
+      description: "Easy-to-understand visual representations of predictions, historical performance, and key agricultural metrics."
     },
     {
       icon: Database,
-      title: "Comprehensive Data Analysis",
-      description: "Integration of multiple data sources for holistic agricultural and financial insights."
+      title: "Historical Data Analysis",
+      description: "Compare current predictions with past performance to identify trends and opportunities for improvement in both yields and credit ratings."
     }
   ];
 
@@ -44,17 +54,18 @@ const Features = () => {
             Powered by Advanced <span className="text-agro-purple">AI Technology</span>
           </h2>
           <p className="text-lg text-gray-600">
-            Our suite of AI-driven tools revolutionizes agricultural credit scoring, providing unprecedented accuracy and insights.
+            Our farmer-friendly tools use real-time data and advanced AI to revolutionize agricultural credit scoring with unprecedented accuracy and simplicity.
           </p>
         </div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {features.map((feature, index) => (
             <FeatureCard
               key={index}
               icon={feature.icon}
               title={feature.title}
               description={feature.description}
+              className="transform transition-all duration-500 hover:scale-105"
             />
           ))}
         </div>
