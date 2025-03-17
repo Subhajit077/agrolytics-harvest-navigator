@@ -38,9 +38,9 @@ const AudienceTargeting = () => {
             <div className="relative">
               <div className="w-full h-full absolute top-0 left-0 bg-agro-blue-light/30 rounded-xl blur-2xl opacity-50"></div>
               <img 
-                src="/placeholder.svg" 
+                src="https://images.unsplash.com/photo-1556155092-490a1ba16284?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" 
                 alt="Financial institution using Agrolytix" 
-                className="relative rounded-xl shadow-lg max-w-sm lg:max-w-md z-10"
+                className="relative rounded-xl shadow-lg max-w-sm lg:max-w-md z-10 object-cover"
               />
             </div>
           </div>
@@ -99,9 +99,9 @@ const AudienceTargeting = () => {
             <div className="relative">
               <div className="w-full h-full absolute top-0 left-0 bg-agro-purple-light/30 rounded-xl blur-2xl opacity-50"></div>
               <img 
-                src="/placeholder.svg" 
+                src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" 
                 alt="Farmer using Agrolytix mobile app" 
-                className="relative rounded-xl shadow-lg max-w-sm lg:max-w-md z-10"
+                className="relative rounded-xl shadow-lg max-w-sm lg:max-w-md z-10 object-cover"
               />
             </div>
           </div>

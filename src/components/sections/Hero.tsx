@@ -1,6 +1,7 @@
 
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const Hero = () => {
   return (
@@ -39,12 +40,15 @@ const Hero = () => {
           <div className="flex justify-center">
             <div className="relative">
               <div className="w-full h-full absolute top-0 left-0 bg-gradient-to-br from-agro-blue-light/30 to-agro-purple-light/30 rounded-2xl blur-2xl opacity-70"></div>
-              <img 
-                src="/placeholder.svg" 
-                alt="Farmer using Agrolytix technology" 
-                className="relative z-10 rounded-2xl shadow-xl animate-float object-cover"
-                style={{ width: '500px', height: '375px' }}
-              />
+              <div className="relative z-10 rounded-2xl shadow-xl animate-float overflow-hidden">
+                <AspectRatio ratio={4/3} className="w-[500px]">
+                  <img 
+                    src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGZhcm1lciUyMHRlY2hub2xvZ3l8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=80" 
+                    alt="Farmer using Agrolytix technology" 
+                    className="object-cover w-full h-full rounded-2xl"
+                  />
+                </AspectRatio>
+              </div>
               <div className="absolute -bottom-4 -right-4 bg-white p-4 rounded-lg shadow-lg z-20 max-w-xs animate-float" style={{ animationDelay: '1s' }}>
                 <div className="flex items-center space-x-2 mb-2">
                   <div className="w-3 h-3 bg-green-500 rounded-full"></div>

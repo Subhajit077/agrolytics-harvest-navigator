@@ -7,6 +7,7 @@ import AudienceTargeting from "@/components/sections/AudienceTargeting";
 import DemoRequest from "@/components/sections/DemoRequest";
 import FAQ from "@/components/sections/FAQ";
 import InteractiveTools from "@/components/sections/InteractiveTools";
+import Testimonials from "@/components/sections/Testimonials";
 
 const Index = () => {
   return (
@@ -17,6 +18,7 @@ const Index = () => {
         <Features />
         <InteractiveTools />
         <AudienceTargeting />
+        <Testimonials />
         <DemoRequest />
         <FAQ />
       </main>
