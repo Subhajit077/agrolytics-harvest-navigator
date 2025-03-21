@@ -111,7 +111,7 @@ const Footer = () => {
             <div className="p-4 bg-white rounded-lg shadow-sm transform transition-all duration-300 hover:scale-105 hover:shadow-md animate-fade-in" style={{ animationDelay: "400ms" }}>
               <div className="relative w-36 h-36 mx-auto mb-4 overflow-hidden rounded-full shadow-lg border-2 border-agro-green">
                 <img 
-                  src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=400&h=400&fit=crop" 
+                  src="/lovable-uploads/83874f83-e4b0-4470-b125-c44f52a83217.png" 
                   alt="Bikram J. Roy"
                   className="object-cover w-full h-full transition-transform duration-500 hover:scale-110"
                   width="400"
