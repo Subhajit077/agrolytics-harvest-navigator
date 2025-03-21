@@ -10,7 +10,7 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
   },
-  base: "/", // You can change this to your desired base path, e.g., "/app/" or "https://yourdomain.com/"
+  base: "https://agrolytix.ind/", // Updated base URL to agrolytix.ind
   plugins: [
     react(),
     mode === 'development' &&
