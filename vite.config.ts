@@ -1,3 +1,4 @@
+
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
@@ -9,6 +10,7 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
   },
+  base: "/", // You can change this to your desired base path, e.g., "/app/" or "https://yourdomain.com/"
   plugins: [
     react(),
     mode === 'development' &&
