@@ -1,4 +1,3 @@
-
 import { FacebookIcon, InstagramIcon, LinkedinIcon, TwitterIcon } from "lucide-react";
 
 const Footer = () => {
@@ -62,7 +61,6 @@ const Footer = () => {
           </div>
         </div>
         
-        {/* Team Section with Enhanced Animations */}
         <div className="mt-12 mb-10">
           <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-6 text-center animate-fade-in">
             Our Leadership Team
@@ -85,7 +83,7 @@ const Footer = () => {
             <div className="p-4 bg-white rounded-lg shadow-sm transform transition-all duration-300 hover:scale-105 hover:shadow-md animate-fade-in" style={{ animationDelay: "200ms" }}>
               <div className="relative w-36 h-36 mx-auto mb-4 overflow-hidden rounded-full shadow-lg border-2 border-agro-green">
                 <img 
-                  src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop" 
+                  src="/lovable-uploads/34faacc4-93b8-474d-97b1-91c67362acb5.png" 
                   alt="Ratul Tarafdar"
                   className="object-cover w-full h-full transition-transform duration-500 hover:scale-110"
                   width="400"
