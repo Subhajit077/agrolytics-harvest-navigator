@@ -71,7 +71,7 @@ const Footer = () => {
             <div className="p-4 bg-white rounded-lg shadow-sm transform transition-all duration-300 hover:scale-105 hover:shadow-md animate-fade-in" style={{ animationDelay: "100ms" }}>
               <div className="relative w-36 h-36 mx-auto mb-4 overflow-hidden rounded-full shadow-lg border-2 border-agro-green">
                 <img 
-                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop" 
+                  src="/lovable-uploads/4dab5818-7495-4e97-b814-348d461c524f.png" 
                   alt="Krishna Saproo"
                   className="object-cover w-full h-full transition-transform duration-500 hover:scale-110"
                   width="400"
